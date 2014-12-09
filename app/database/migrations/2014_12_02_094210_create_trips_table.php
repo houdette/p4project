@@ -22,6 +22,8 @@ class CreateTripsTable extends Migration {
 		/* Populate the table */
 		$table->string('name');
 		$table->integer('duration');
+		
+
 			
 		});
 	}

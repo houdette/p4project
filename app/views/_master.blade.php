@@ -1,15 +1,41 @@
- <!--<body>
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+  	<title>@yield('title' , 'Paris Itineraries')</title>
 
-    @if(Session::get('flash_message'))
-        <div class='flash-message'>{{ Session::get('flash_message') }}</div>
-    @endif
+    <!-- CSS -->
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+	
+	</head>
+<body role="document">
+	<div class="container theme-showcase" role="main">  
+	@yield('headercontent')
 
-    [... Rest of your page ...]-->
+	@if(Auth::check())
+		<a href='/logout'>Log out {{ Auth::user()->email; }}</a><br>
+	@else 
+		<a href='/signup'>Sign up</a> or <a href='/login'>Log in</a><br/>
+	@endif
+
+	@if(Session::get('flash_message'))
+	<div class="alert alert-error">
+    <a href="#" class="close" data-dismiss="alert">&times;</a>
+    <strong>Error!</strong> {{ Session::get('flash_message') }}.
+	</div>
+	@endif
+
+	@if(Session::get('status_message'))
+	<div class="alert alert-status">
+    <a href="#" class="close" data-dismiss="alert">&times;</a>
+    <strong>Success</strong> {{ Session::get('status_message') }}.
+	</div>
+	@endif
+
+    @yield('maincontent')
+	</div>
     
-    
-    
-  <!--  @if(Auth::check())
-    <a href='/logout'>Log out {{ Auth::user()->email; }}</a>
-@else 
-    <a href='/signup'>Sign up</a> or <a href='/login'>Log in</a>
-@endif -->
+    @yield('footer')
+
+</body>
+</html>
