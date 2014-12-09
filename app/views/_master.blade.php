@@ -6,11 +6,12 @@
 
     <!-- CSS -->
 	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+	<link rel='stylesheet' href='{{ asset( 'css/p4.css')}}'type = 'text/css'>
 	
-	</head>
-<body role="document">
-	<div class="container theme-showcase" role="main">  
-	@yield('headercontent')
+</head>
+<body>
+	<div class="container">  
+	@yield('contenthead')
 
 	@if(Auth::check())
 		<a href='/logout'>Log out {{ Auth::user()->email; }}</a><br>
@@ -19,20 +20,20 @@
 	@endif
 
 	@if(Session::get('flash_message'))
-	<div class="alert alert-error">
+	<div class="error">
     <a href="#" class="close" data-dismiss="alert">&times;</a>
     <strong>Error!</strong> {{ Session::get('flash_message') }}.
 	</div>
 	@endif
 
 	@if(Session::get('status_message'))
-	<div class="alert alert-status">
+	<div class="status">
     <a href="#" class="close" data-dismiss="alert">&times;</a>
     <strong>Success</strong> {{ Session::get('status_message') }}.
 	</div>
 	@endif
 
-    @yield('maincontent')
+    @yield('main')
 	</div>
     
     @yield('footer')
