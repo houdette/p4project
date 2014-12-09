@@ -5,11 +5,12 @@
   	<title>@yield('title' , 'Paris Itineraries')</title>
 
     <!-- CSS -->
-	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
-	<link rel='stylesheet' href='{{ asset( 'css/p4.css')}}'type = 'text/css'>
+	<link rel='stylesheet' href='{{ asset( 'css/p4.css')}}'type ='text/css'>
 	
 </head>
 <body>
+    @yield ('image')
+                 
 	<div class="container">  
 	@yield('contenthead')
 

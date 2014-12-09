@@ -13,6 +13,14 @@
 
 // app/routes.php`:
 
+Route::get('/', function()
+    
+    {
+    
+	return View::make('index');
+	
+    });
+
 Route::get('/signup',
     array(
         'before' => 'guest',

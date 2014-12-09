@@ -1,10 +1,18 @@
 @extends('_master')
 
-@section('title')
-   Paris Itineraries| Main
-@stop
+  @section('title')
+     Paris Itineraries| Main
+  @stop
 
-@section('contenthead')
+    @section('image')
+       <div class="heather">
+       <img id="image" src="{{ asset('pictures/paris.jpeg')}}" alt="Paris"/>
+       </div>
+  
+     @stop
+
+
+
 <div class="jumbotron">
         <h1>Paris Itineraries </h1>
         <p>This app lets you choose your Paris itineraries according to the time you have </p>
