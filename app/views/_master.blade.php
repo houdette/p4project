@@ -1,17 +1,18 @@
 <!doctype html>
 <html>
-<head>
+  <body>
+  <head>
 	<meta charset="utf-8"/>
-  	<title>@yield('title' , 'Paris Itineraries')</title>
+  	<title>@yield('title') Paris Itineraries</title>
 
     <!-- CSS -->
-	<link rel='stylesheet' href='{{ asset( 'css/p4.css')}}'type ='text/css'>
+    	<link rel="stylesheet" href="css/p4.css" type ='text/css'>
 	
-</head>
-<body>
-    @yield ('image')
+  </head>
+    
+       
                  
-	<div class="container">  
+	  
 	@yield('contenthead')
 
 	@if(Auth::check())

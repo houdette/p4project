@@ -1,10 +1,10 @@
 
-.body{
+body{
 	
-	background-image: url("images/paris.jpg");
+	background-image: url("images/paris.jpeg");
 	background-size: 1300px 750px;
 	background-repeat: no-repeat;
-	margin-left:50px;
+	
 	
 }
 

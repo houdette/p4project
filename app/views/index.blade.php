@@ -1,15 +1,16 @@
 @extends('_master')
 
   @section('title')
-     Paris Itineraries| Main
-  @stop
-
-    @section('image')
-       <div class="heather">
-       <img id="image" src="{{ asset('pictures/paris.jpeg')}}" alt="Paris"/>
-       </div>
+    
+     
+     
   
-     @stop
+ 
+       <header>
+       <img id="image" src="images/paris.jpeg" alt="Paris"/>
+       </header>
+  
+  @stop
 
 
 
