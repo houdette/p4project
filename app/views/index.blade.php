@@ -2,13 +2,11 @@
 
   @section('title')
     
+    
      
-     
-  
- 
-       <header>
        <img id="image" src="images/paris.jpeg" alt="Paris"/>
-       </header>
+       
+       
   
   @stop
 

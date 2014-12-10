@@ -2,8 +2,9 @@
 <html>
   <body>
   <head>
+  @yield('title')
 	<meta charset="utf-8"/>
-  	<title>@yield('title') Paris Itineraries</title>
+  	<title> Paris Itineraries</title>
 
     <!-- CSS -->
     	<link rel="stylesheet" href="css/p4.css" type ='text/css'>
@@ -12,7 +13,7 @@
     
        
                  
-	  
+	  <!--
 	@yield('contenthead')
 
 	@if(Auth::check())
@@ -38,7 +39,7 @@
     @yield('main')
 	</div>
     
-    @yield('footer')
+    @yield('footer') -->
 
 </body>
 </html>
