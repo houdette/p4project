@@ -3,8 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateAccommodationTypeTable extends Migration 
-{
+class CreateListTaskTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -13,25 +12,24 @@ class CreateAccommodationTypeTable extends Migration
 	 */
 	public function up()
 	{
-		 Schema::create('accommodation_type',function($table)
+		Schema::create('list_task',function($table)
 		
 		{
 		
 		  # Pivot table - no PK or AI needed
 		 
 		  /* Declare the first Foreign Key */
-		  $table->integer('accommodation_id')->unsigned();
+		  $table->integer('list_id')->unsigned();
 		  
 		  /* Declare the second Foreign Key */
-		  $table->integer('type_id')->unsigned();
+		  $table->integer('task_id')->unsigned();
 	
 		  
 		  /* FK */
-		  $table->foreign('accommodation_id')->references('id')->on('accommodations');
-		  $table->foreign('type_id')->references('id')->on('types');
+		  $table->foreign('list_id')->references('id')->on('lists');
+		  $table->foreign('task_id')->references('id')->on('tasks');
 		  
 		 });
-		 
 	}
 
 	/**
@@ -41,8 +39,7 @@ class CreateAccommodationTypeTable extends Migration
 	 */
 	public function down()
 	{
-		 Schema:drop('accommodation_type');
-		 
+		Schema:drop('list_task');
 	}
 
 }

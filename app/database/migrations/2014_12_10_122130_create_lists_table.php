@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTypesTable extends Migration {
+class CreateListsTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,7 +12,7 @@ class CreateTypesTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('types',function($table)
+		Schema::create('lists',function($table)
 		{
 		/* Set up PK & AI */
 		$table->increments('id');
@@ -25,9 +25,6 @@ class CreateTypesTable extends Migration {
 		$table->string('name');
 			
 		});
-		
-		
-		
 	}
 
 	/**
@@ -37,9 +34,7 @@ class CreateTypesTable extends Migration {
 	 */
 	public function down()
 	{
-		
-	   Schema::drop('types');
-		
-    }
+		Schema::drop('lists');
+	}
 
 }

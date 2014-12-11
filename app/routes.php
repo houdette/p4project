@@ -12,15 +12,25 @@
 */
 
 // app/routes.php`:
+Route::get('/', 'IndexController@getIndex');
 
-Route::get('/home', function()
+
+
+
+
+
+Route::get('/practice-create', function()
     
     {
+    $trip = new Trip(); 
     
-	return View::make('index');
-	
-    });
-    
+    $trip->name = 'Old Paris';
+    $trip->duration = 2;
+    $trip->save();
+	 
+	 return 'Your accommodation has been added';
+	 });
+   
 
 Route::get('/signup',
     array(

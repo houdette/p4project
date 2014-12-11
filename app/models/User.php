@@ -14,6 +14,7 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	 *
 	 * @var string
 	 */
+	 
 	protected $table = 'users';
 
 	/**
@@ -23,6 +24,20 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	 */
 	protected $hidden = array('password', 'remember_token');
 	
+ 
+    	   
+	public function tasks() {
+		/* user may have many tasks */
+		/* Define one to many */
+		return $this->hasMany('Task'); 
 	
+    }
+    public function lists() {
+		/* user may have many lists */
+		/* Define one to many */
+		return $this->hasMany('List'); 
+	
+    
+    }
 
 }

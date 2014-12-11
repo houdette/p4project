@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateAccommodationsTable extends Migration {
+class CreateTasksTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,7 +12,7 @@ class CreateAccommodationsTable extends Migration {
 	 */
 	public function up()
 	{
-	    Schema::create('accommodations',function($table)
+	 Schema::create('tasks',function($table)
 		
 		{
 		  /* Set up PK and AI */
@@ -22,31 +22,27 @@ class CreateAccommodationsTable extends Migration {
 		  $table->timestamps();
 		  
 		  /* Declare the Foreign Key */
-		  $table->integer('trip_id')->unsigned();
+		  $table->integer('user_id')->unsigned();
 		  
 		  /* Populate the table */
-		  $table->string('landmarks');
-		  $table->string('accommodations');
+		  $table->integer('due_date')->nullable();
+		  $table->string('done');
 		  
 		  /* FK */
-		  $table->foreign('trip_id')->references('id')->on('trips');
+		  $table->foreign('user_id')->references('id')->on('users');
 		  
 		 });
-		 
-		 
-		 
-	 }
+		  
 
 	/**
 	 * Reverse the migrations.
 	 *
 	 * @return void
 	 */
+	 }
 	public function down()
 	{
-			Schema::drop('accommodations');
-		
-		  
+		Schema::drop('tasks');
 	}
 
 }
