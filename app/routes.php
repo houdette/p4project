@@ -92,17 +92,7 @@ Route::get('/login',
     array(
         'before' => 'guest',
         function() {
-        
-        $credentials = Input::only('email', 'password');
-            if (Auth::attempt($credentials, $remember = true)) {
-                return Redirect::to('/');
-            }
-            else {
-                return View::make('login')->with('flash_message', 'Log in failed; please try again.');
-            
-            }
-        
-        
+       
             return View::make('login');
         }
     )
