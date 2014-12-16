@@ -32,13 +32,16 @@ Route::get('itineraries/edit','ItineraryController@getEdit');
 
     
 //need to work on logic between controller and view BUT NEED
-Route::post('itineraries/edit','ItineraryController@PostEdit');
+Route::post('itineraries/edit','ItineraryController@postEdit');
 
 
 // ... BUT NEED LOGIN BEFORE POSTING SO MAYBE A REDIRECT TO LOGIN AND THEN COME BACK TO DELETE ITINERARY POST?? 
 Route::get('itineraries/delete', 'ItineraryController@getDelete');
 
 //Route::post('itineraries/delete', 'ItineraryController@postDelete');
+
+Route::post('itineraries/delete', 'ItineraryController@postDelete');
+
 
    
 
