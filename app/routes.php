@@ -11,25 +11,35 @@
 |
 */
 
-// app/routes.php`:
+// app/routes.php`: 
+// 
 Route::get('/', 'IndexController@getIndex');
 
+// working BUT NEED TO DISPLAY ALL ITINERARIES HERE 
+Route::get('/itineraries', 'ItineraryController@getList');
+
+//working 
+Route::get('itineraries/create','ItineraryController@getCreate');
 
 
+//need to work on logic between controller and view.
+//purpose is to create a new Itinerary
+Route::post('itineraries/create','ItineraryController@postCreate');
 
 
+//working BUT NEED LOGIN BEFORE POSTING SO MAYBE A REDIRECT TO LOGIN AND THEN COME BACK TO EDIT POST?? 
+Route::get('itineraries/edit','ItineraryController@getEdit');
 
-Route::get('/practice-create', function()
     
-    {
-    $trip = new Trip(); 
-    
-    $trip->name = 'Old Paris';
-    $trip->duration = 2;
-    $trip->save();
-	 
-	 return 'Your accommodation has been added';
-	 });
+//need to work on logic between controller and view BUT NEED
+Route::post('itineraries/edit','ItineraryController@PostEdit');
+
+
+// ... BUT NEED LOGIN BEFORE POSTING SO MAYBE A REDIRECT TO LOGIN AND THEN COME BACK TO DELETE ITINERARY POST?? 
+Route::get('itineraries/delete', 'ItineraryController@getDelete');
+
+//Route::post('itineraries/delete', 'ItineraryController@postDelete');
+
    
 
 Route::get('/signup',
@@ -49,11 +59,21 @@ Route::post('/signup',
             $user->email    = Input::get('email');
             $user->password = Hash::make(Input::get('password'));
 
-            # Try to add the user 
+            # Rules 
+           $rules= array('email'=> 'email|unique:users,email', 'password' => 'min:6');
+            
+            # Validation Fail
+            $validator = Validator::make(Input::all(),$rules); 
+            if($validator->fails())
+            {
+            return Redirect::to('/signup')->with('flash_message', 'Sign up failed; please try again.')->withInput();
+            }
+            
+            # add the user 
             try {
                 $user->save();
             }
-            # Fail
+            # Failure
             catch (Exception $e) {
                 return Redirect::to('/signup')->with('flash_message', 'Sign up failed; please try again.')->withInput();
             }
@@ -61,7 +81,8 @@ Route::post('/signup',
             # Log the user in
             Auth::login($user);
 
-            return Redirect::to('/list')->with('flash_message', 'Welcome to Foobooks!');
+
+              return Redirect::to('/itineraries')->with('flash_message', 'Welcome to Paris!');
 
         }
     )
@@ -71,6 +92,17 @@ Route::get('/login',
     array(
         'before' => 'guest',
         function() {
+        
+        $credentials = Input::only('email', 'password');
+            if (Auth::attempt($credentials, $remember = true)) {
+                return Redirect::to('/');
+            }
+            else {
+                return View::make('login')->with('flash_message', 'Log in failed; please try again.');
+            
+            }
+        
+        
             return View::make('login');
         }
     )
@@ -171,7 +203,8 @@ Route::get('/get-environment',function() {
 });
 
 
-Route::get('/', function()
+Route::get('/hello', function()
 {
 	return View::make('hello');
 });
+

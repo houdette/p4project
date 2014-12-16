@@ -2,7 +2,7 @@
 
   @section('title')
       
-     Welcome to Task Manager
+     Welcome to Paris Itineraries
   
   @stop
     
@@ -15,29 +15,18 @@
   @section('maintop')
 
   <div class="main">
-        <h1>Task Manager</h1>
-          <p> When you login,this app lets you add and manage your tasks </p>
+        <h1>Paris Itineraries</h1>
+          <p> This app lets you add and manage Paris itineraries according to the time you are spending in the city of lights! </p>
         <ul>
-            <li>add a list of my tasks.</li>
-            <li>show my saved tasks. </li>
-            <li>delete unneeded tasks.</li>
+            <li>add an itinerary.</li>
+            <li>show my saved itinerary. </li>
+            <li>delete unneeded itineraries.</li>
         </ul>
     </div>
   @stop
   
   @section('content')
- 	<div class="form-login">
-	 		{{ Form::open(array('url' => '/book', 'method' => 'GET')) }}
-
-		        {{ Form::label('query','Search') }}
-
-		        {{ Form::text('query'); }}
-
-		         {{ Form::submit('Search'); }}
-
-	            </div>
-		 	{{ Form::close() }}
-		</div>
+ 
 	</div>
  @stop
 

@@ -8,8 +8,8 @@
 
                <meta charset="UTF-8">
 	              <!-- css -->
-	              <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
-                     <title> @yield ('title','Task Manager') </title>
+	                 <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+                     <title> @yield ('title','Paris Itineraries') </title>
                       <!--more css -->
                       <link rel='stylesheet' href='{{ asset( 'css/p4.css')}}'type = 'text/css'>
                   @yield ('navigation')
@@ -22,21 +22,22 @@
 	                @endif
                  <nav>    
                     <div class="navigation" style="margin:center;">
-                     <img src="http://integratedwebquestwiki.wikispaces.com/file/view/tasks-banner.jpg"
-                       <h4><a href="/" target="_blank">Home</a> | <a href="/tasks" target="_blank">My Tasks</a> |
+                     <img src="https://s3.amazonaws.com/devhouda/images/paristrip1.jpg" style = "height: 250px; width:1000px; margin-left: 50px;"/><br>
+                       <h4> <a href="/" target="_blank">Home</a> | <a href="/tasks" target="_blank">My Itineraries</a> |
                 
-                       <a href="/mylists" target="_blank">My Lists</a> </h4> </div>
+                       <a href="/trips" target="_blank">Trips</a> </h4> </div>
                 
                     </div>
                      
-                    @if(Auth::check())
+                   
                     <ul>
+                     @if(Auth::check())
 				     <li> <a href='/logout'>Log out {{ Auth::user()->email; }}</a><li><br>
-				     <li><a href='/task'>All Tasks</a></li>
-			         <li><a href='/list'>All List</a></li>
-			         <li><a href='/task/create'>+ Add Task </a></li>
+				     <li><a href='/itineraries'>All Itineraries</a></li>
+			         <li><a href='/#'>All Trips </a></li>
+			         <li><a href='/itineraries/create'>+ Add an Itinerary </a></li>
 				    @else 
-		              <li><a href='/signup'>Sign up</a> or <a href='/login'>Log in</a><li><br/>
+		              <ul style = "margin: ";> <a href='/signup'>Sign up</a> or <a href='/login'>Log in</a></ul><br/>
 	                @endif
 	                
 				     </ul>

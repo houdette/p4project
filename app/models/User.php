@@ -26,18 +26,12 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	
  
     	   
-	public function tasks() {
-		/* user may have many tasks */
+	public function itineraries() {
+		/* trip may have many itineraries */
 		/* Define one to many */
-		return $this->hasMany('Task'); 
+		return $this->belongsToMany('Itinerary','itinerary_user'); 
 	
-    }
-    public function lists() {
-		/* user may have many lists */
-		/* Define one to many */
-		return $this->hasMany('List'); 
 	
-    
     }
 
 }

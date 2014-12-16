@@ -3,15 +3,24 @@
   <h1>Sign up</h1>
 
     {{ Form::open(array('url' => '/signup')) }}
-
-      Email<br>
+       
+       First Name<br>
+        
+        {{ Form::text('first') }}<br><br>
+         
+          Last Name <br>
+          
+             {{ Form::text('last') }}<br><br>
+      
+                Email<br>
     
-       {{ Form::text('email') }}<br><br>
+                {{ Form::text('email') }}<br><br>
 
-         Password:<br>
+                  Password:<br>
     
-           {{ Form::password('password') }}<br><br>
+                   {{ Form::password('password') }}<br><br>
 
-               {{ Form::submit('Submit') }}
+                   
+                     {{ Form::submit('Submit') }}
 
-    {{ Form::close() }}
+        {{ Form::close() }}
