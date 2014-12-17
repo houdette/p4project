@@ -4,23 +4,35 @@
 
 class ItineraryController extends BaseController {
 
- public function getList()
- {
-	//  THIS one needs to display all itineraries and if possible to loop through them to Loop through results to read some itineraries
-	
-	
-	return View::make('itinerary_list');
+     public function _construct(){
+	   /* call baseController */
+	   parent::_construct();
+	   
+	   /* Logged in users only */
+	   
+	   $this->beforeFilter('auth');
+	   
  }
+ 
+ 
+ 
+     public function getList($id)
+     {
+	 //  THIS one needs to display all itineraries and if possible to loop through them to Loop through results to read some itineraries 
+	
+	
+	   return View::make('itinerary_list');
+      }
 
 
-  public function getCreate()
   
-  {  
+      public function getCreate()
+  
+      {  
 
-   $userId= Auth::id(); 
+       $userId= Auth::id(); 
   
-  
-   return View::make('itinerary_create')->with('user_id', $userId);
+       return View::make('itinerary_create')->with('user_id', $userId);
   
   }
   
@@ -61,13 +73,13 @@ class ItineraryController extends BaseController {
 		return View::make('itinerary_delete')->with('user_id', $userId);
 	}
 	
-	//THIS one needs to post a DELETED itinerary to DB, user needs to be signed in. In Laravel it has to be found before it is DELETED.
+//THIS one needs to post a DELETED itinerary to DB, user needs to be signed in. In Laravel it has to be found before it is DELETED.
     
     public function postDelete()
 	{
 	$userId= Auth::id();
 		
-		return View::make('itinerary_delete')->with('user_id', $userId);
+	return View::make('itinerary_delete')->with('user_id', $userId);
 	}
       
    }
