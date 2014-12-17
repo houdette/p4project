@@ -30,7 +30,7 @@ class CreateItineraryUserTable extends Migration {
 	 */
 	public function down()
 	{
-	 Schema:drop('itinerary_user');
+	 Schema::drop('itinerary_user');
 
 	}
 

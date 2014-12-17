@@ -41,7 +41,7 @@ class CreateItinerariesTable extends Migration {
 	 */
 	public function down()
 	{
-	 Schema:drop('itineraries');
+	 Schema::drop('itineraries');
 
 
 	}
