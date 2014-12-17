@@ -16,6 +16,12 @@ class IndexController extends BaseController {
 	*
 	*/
 	public function getIndex() {
-		return View::make('index');
+	
+	
+    $userId = Auth::id();
+    $user = User::find($userId);
+    	
+	
+	return View::make('index');
 	}
 }

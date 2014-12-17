@@ -10,9 +10,21 @@ class CreateItineraryTripTable extends Migration {
 	 *
 	 * @return void
 	 */
-	public function up()
-	{
+	 public function up()
+	 {
 		
+     Schema::create('itinerary_trip', function(Blueprint $table)
+		
+     {
+     $table->increments('id');
+     $table->integer('trip_id')->unsigned()->index();
+     $table->foreign('trip_id')->references('id')->on('trips');
+     
+     $table->integer('itinerary_id')->unsigned()->index();
+     $table->foreign('itinerary_id')->references('id')->on('itineraries');
+     
+     $table->timestamps();
+     });
 
 	}
 
@@ -23,7 +35,7 @@ class CreateItineraryTripTable extends Migration {
 	 */
 	public function down()
 	{
-		
+	Schema::drop('itinerary_trip');
 	}
 
 }
