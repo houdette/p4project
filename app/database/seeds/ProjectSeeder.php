@@ -3,7 +3,7 @@
 class ProjectSeeder extends Seeder{
 	
   public function run(){
-	  /* Clear tables in case we need it without worrying about FK constraints */
+	  /* Clear tables in case we need to delete them without worrying about FK constraints */
 	    
 	    DB::statement('SET FOREIGN_KEY_CHECKS=0'); # Disable FK constraints 
 		DB::statement('TRUNCATE itineraries');
@@ -59,7 +59,7 @@ $parischateaux->image='https://s3.amazonaws.com/devhouda/images/paris3.jpeg';
 $parischateaux->description='Day 1: The Latin Quarter, a vibrant district with a lot of shops and cafes.
 Day 2: The Sceaux Park, with its beautiful castle, the Chateau de Sceaux, with the relaxing canal lined with the beautiful landscape. Day 3: The Palace of Versailles and its luxurious gardens designed in the 17th century... Day 4: Saint Germain en Laye and its famous castle, which has preserved the heritage of the royal family. Day 5: Eiffel Tower, Seine, Arc de Triomphe and Champs Elysées ';
 $parischateaux->associate($parisc); #associates this itinerary name with the trip name parisb
-$parisculture->save();
+$parischateaux->save();
 //add attach???
 
 
@@ -67,7 +67,7 @@ $user = new User;
 		$user->email      = 'houda@gmail.com';
 		$user->password   = Hash::make('app1234');
 		$user->first_name = 'houda';
-		$user->last_name  = 'bereeee';
+		$user->last_name  = 'bereee';
 		$user->save();
 	  
 	  

@@ -16,7 +16,7 @@ class ItineraryController extends BaseController {
  
  
  
-     public function getList($id)
+     public function getList()
      {
 	 //  THIS one needs to display all itineraries and if possible to loop through them to Loop through results to read some itineraries 
 	

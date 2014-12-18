@@ -22,6 +22,8 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	 *
 	 * @var array
 	 */
+	 
+	
 	protected $hidden = array('password', 'remember_token');
 	
 	# The guarded properties specifies which attributes should *not* be mass-assignable

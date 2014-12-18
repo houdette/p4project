@@ -2,7 +2,7 @@
 @extends('_master')
 
 @section('title')
-  Create a new itinerary
+  Edit a new itinerary
 @stop
 
 @section('content')
@@ -17,7 +17,7 @@
     {{ Form::label('description', 'Description') }}
     {{ Form::text('description','description') }}
     {{ Form::hidden('user_id', $user_id) }}
-    {{ Form::hidden('task_id', 'taskid') }}
+    {{ Form::hidden('itinerary_id', 'itineraryid') }}
     {{ Form::submit('Edit Itinerary') }}
     {{ Form::close() }}
 @stop
