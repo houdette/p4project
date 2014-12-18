@@ -6,7 +6,7 @@ Delete an itinerary
 
 @section('content')
 
-<!!Work on PHP Laravel logic to get the data-->
+
 
 <h2> Delete Trip Itinerary</h2>
 
@@ -20,3 +20,5 @@ Delete an itinerary
 </form>
 
 @stop
+
+

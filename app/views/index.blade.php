@@ -15,13 +15,10 @@
   @section('maintop')
 
   <div class="main">
-        <h1>Paris Itineraries</h1>
-          <p> This app lets you add and manage Paris itineraries according to the time you are spending in the city of lights! </p>
-        <ul>
-            <li>add an itinerary.</li>
-            <li>show my saved itinerary. </li>
-            <li>delete unneeded itineraries.</li>
-        </ul>
+
+        <h4>Paris Itineraries</h4>
+          <p> This Web application lets you add and manage Paris itineraries according to the time you are spending in the city of lights!</p>
+          <p> You need to be signed-in to keep truckin'!</p>
     </div>
   @stop
   

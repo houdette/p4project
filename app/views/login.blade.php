@@ -1,15 +1,28 @@
 
-<!-- /app/views/login.blade.php -->
-<h1>Log in</h1>
+@extends('_master')
 
-{{ Form::open(array('url' => '/login')) }}
+@section('title')
+  Login to edit your itineraries
+@stop
 
-    Email<br>
-    {{ Form::text('email') }}<br><br>
+@section('content')
 
-    Password:<br>
-    {{ Form::password('password') }}<br><br>
+  <!-- /app/views/login.blade.php -->
+    <div class = "login-form">
+      <h1 style ="color: white;">Log in</h1>
+      
+        {{ Form::open(array('url' => '/login')) }}
 
-    {{ Form::submit('Submit') }}
 
-{{ Form::close() }}
+        <h5 style="color:white;"> Email:</h5> 
+        {{ Form::text('email') }}<br><br>
+
+        <h5 style="color:white;">Password:</h5>
+        {{ Form::password('password') }}<br><br>
+        <div class="button-login">
+        {{ Form::submit('Submit') }}
+       </div>
+        {{ Form::close()}}
+
+</div>
+@stop

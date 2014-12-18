@@ -12,48 +12,49 @@
 */
 
 // app/routes.php`: 
-// 
+ 
 Route::get('/', 'IndexController@getIndex');
 
-// working BUT NEED TO DISPLAY ALL ITINERARIES HERE 
-Route::get('/itineraries', 'ItineraryController@getList');
 
-//working 
-Route::get('itineraries/create','ItineraryController@getCreate');
+//Trips
 
-
-//need to work on logic between controller and view.
-//purpose is to create a new Itinerary
-Route::post('itineraries/create','ItineraryController@postCreate');
-
-
-//working BUT NEED LOGIN BEFORE POSTING SO MAYBE A REDIRECT TO LOGIN AND THEN COME BACK TO EDIT POST?? 
-Route::get('itineraries/edit','ItineraryController@getEdit');
-
-    
-//need to work on logic between controller and view BUT NEED
-Route::post('itineraries/edit','ItineraryController@postEdit');
+Route::group(array('prefix' => 'trips'), function(){
+    Route::get('/', array('as' => 'trips', 'uses' => 'TripController@getList'));
+    Route::get('/create', array('as' => 'trips.create.get', 'uses' => 'TripController@getCreate'));
+    Route::post('/create', array('as' => 'trips.create.post', 'uses' => 'TripController@postCreate'));
+    Route::get('/edit/{id}', array('as' => 'trips.edit.get', 'uses' => 'TripController@getEdit'));
+    Route::post('/edit/{id}', array('as' => 'trips.edit.post', 'uses' => 'TripController@postEdit'));
+    Route::get('/delete/{id}', array('as' => 'trips.delete.get', 'uses' => 'TripController@getDelete'));
+    Route::post('/delete/{id}', array('as' => 'trips.delete.post', 'uses' => 'TripController@postDelete'));
+});
 
 
-// ... BUT NEED LOGIN BEFORE POSTING SO MAYBE A REDIRECT TO LOGIN AND THEN COME BACK TO DELETE ITINERARY POST?? 
-Route::get('itineraries/delete', 'ItineraryController@getDelete');
 
-//Route::post('itineraries/delete', 'ItineraryController@postDelete');
+Route::group(array('prefix' => 'itineraries'), function(){
+    Route::get('/', array('as' => 'itineraries', 'uses' => 'ItineraryController@getList'));
+    Route::get('/create', array('as' => 'itineraries.create.get', 'uses' => 'ItineraryController@getCreate'));
+    Route::post('/create', array('as' => 'itineraries.create.post', 'uses' => 'ItineraryController@postCreate'));
+    Route::get('/edit/{id}', array('as' => 'itineraries.edit.get', 'uses' => 'ItineraryController@getEdit'));
+    Route::post('/edit/{id}', array('as' => 'itineraries.edit.post', 'uses' => 'ItineraryController@postEdit'));
+    Route::get('/delete/{id}', array('as' => 'itineraries.delete.get', 'uses' => 'ItineraryController@getDelete'));
+    Route::post('/delete/{id}', array('as' => 'itineraries.delete.post', 'uses' => 'ItineraryController@postDelete'));
+});
 
-Route::post('itineraries/delete', 'ItineraryController@postDelete');
+    Route::group(array('prefix' => 'plan'), function(){
+    Route::get('trip', array('as' => 'plan.trip', 'uses' => 'TripPlannerController@selectTrip'));
+    Route::get('itinerary', array('as' => 'plan.trip.step2', 'uses' => 'TripPlannerController@selectItinerary'));
+    Route::post('save', array('as' => 'plan.trip.save', 'uses' => 'TripPlannerController@saveTrip'));
+});
 
-
-   
-
-Route::get('/signup',
+    Route::get('/signup',
     array(
         'before' => 'guest',
-        function() {
+         function() {
             return View::make('signup');
-        }
-    )
+         }
+ )
 );
-Route::post('/signup', 
+    Route::post('/signup', 
     array(
         'before' => 'csrf', 
         function() {
@@ -63,7 +64,7 @@ Route::post('/signup',
             $user->password = Hash::make(Input::get('password'));
 
             # Rules 
-           $rules= array('email'=> 'email|unique:users,email', 'password' => 'min:6');
+            $rules= array('email'=> 'email|unique:users,email', 'password' => 'min:6');
             
             # Validation Fail
             $validator = Validator::make(Input::all(),$rules); 
@@ -85,10 +86,10 @@ Route::post('/signup',
             Auth::login($user);
 
 
-              return Redirect::to('/itineraries')->with('flash_message', 'Welcome to Paris!');
+            return Redirect::to('/itineraries')->with('flash_message', 'Welcome to Paris!');
 
         }
-    )
+      )
 );
 
 Route::get('/login',
@@ -101,10 +102,10 @@ Route::get('/login',
     )
 );
 
-Route::post('/login', 
-    array(
+    Route::post('/login', 
+       array(
         'before' => 'csrf', 
-        function() {
+         function() {
 
             $credentials = Input::only('email', 'password');
 
@@ -120,14 +121,14 @@ Route::post('/login',
     )
 );
 
-# /app/routes.php
-Route::get('/logout', function() {
+     # /app/routes.php
+      Route::get('/logout', function() {
 
-    # Log out
-    Auth::logout();
+      # Log out
+      Auth::logout();
 
-    # Send them to the homepage
-    return Redirect::to('/');
+     # Send them to the homepage
+     return Redirect::to('/');
 
 });
 

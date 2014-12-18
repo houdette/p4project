@@ -1,16 +1,60 @@
 body{
 	
-	background-color: #0e0f0f;
+	background-color: #191933;
 	margin:3px auto auto auto;
     font-family: sans-serif, Helvetica;
-    color:white;
+
+    
 	}
 
 
 .navigation{
  margin-left: 100px;
- font-color: white;
  text-decoration:none;
+ 
+}
+
+.flash-message{
+
+	width:100%;
+	position:absolute;
+	top:0;
+	left:0;
+	background-color:green;
+	text-align:center;
+	padding:5px;
+}
+
+nav ul {
+	list-style-type:none;
+	padding:5px 0px 5px 0px;
+	margin-left: 100px;
 	
+}
+
+.main{
+
+	margin-left: 100px;
 	
+	font-size: 16px;
+}
+
+.login{
+
+	margin-left: 0px;
+	padding-top: 10px, 10px, 10px,5px;
+
+}
+
+.login-form{
+
+	margin-left: 100px;
+	font-color:black;
+}
+
+
+.button-login{
+  
+  color: black;
+
 }
