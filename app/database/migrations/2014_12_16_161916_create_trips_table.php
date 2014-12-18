@@ -19,11 +19,10 @@ class CreateTripsTable extends Migration {
  
        /* Set up fields 'created_at & updated_at */
        $table->timestamps();
- 
- 
-       /* Populate the table */
-       $table->string('name');
-       $table->integer('duration')->nullable();
+       
+        /* Populate the table */
+        $table->string('name');
+        $table->integer('duration')->nullable();
  
        });
 	}

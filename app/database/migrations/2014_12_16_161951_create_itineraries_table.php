@@ -20,6 +20,11 @@ class CreateItinerariesTable extends Migration {
      /* Set up fields 'created_at & updated_at */
      $table->timestamps();
  
+ 
+        /* Foreign Key */
+       $table->integer('trip_id')->unsigned(); 
+       $table->foreign('trip_id')->references('id')->on('trips');
+
      /* Adding field name of the trip */
  
      $table->string('name');

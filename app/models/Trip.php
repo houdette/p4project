@@ -2,27 +2,25 @@
  
  <?php 
 
-class Trip extends Eloquent{
-
-     protected $fillable = array('name','duration');
-  
-  
-    /*The guarded property specifies attributes that should not be mass-assignable */ 
-	protected $guarded = array('id', 'created_at', 'updated_at');
+ class Trip extends Eloquent{
 	
-	/* Trips belong to many users  */
+	        
+	     /* A Trip has itineraries  */
 	
-	public function user(){
+	        public function itineraries(){
 		
-		return $this->hasMany('User');
-	}
-	
-	/* A Trip has itineraries  */
-	
-	  public function itineraries(){
+		      return $this->hasMany('Itinerary');
 		
-		return $this->hasMany('Itinerary');
-	  }
+		     }
+		     
+	        public static function getTripId() {
+		    $trips = Array();
+		    $collection = Trip::all();
+		    foreach($collection as $trip) {
+			$trips[$trip->id] = $trip->name;
+		    }
+		    return $trips;
+	        }
 
 
 }
