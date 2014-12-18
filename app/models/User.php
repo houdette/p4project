@@ -26,22 +26,8 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	
 	protected $hidden = array('password', 'remember_token');
 	
-	# The guarded properties specifies which attributes should *not* be mass-assignable
-	protected $guarded = array('id', 'created_at', 'updated_at');
- 
-    	   
-	public function itineraries() {
-		/* user may have many itineraries */
-		/* Define one to many */
-		return $this->belongsToMany('Itineraries'); 
-	
-    }
-    
-    public function trips(){
-	 /* User may have many  trips */
-	 return $this->belongsToMany('trips');
-	  
+
 	    
-    }
+   
 
 }

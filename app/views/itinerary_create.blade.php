@@ -6,9 +6,10 @@
 
 @section('content')
 
-<!!Work on PHP Laravel logic to get the data-->
+ <!!Work on PHP Laravel logic to get the data-->
 
   <h2>Add a Trip Itinerary</h2>
+  
   <form action="{{ action('ItineraryController@postCreate') }}" method="post" role="form">
 
     		<input type = "hidden" name = "_token" value = "<?php echo csrf_token(); ?>">
@@ -26,4 +27,6 @@
 			<a href="{{ action('IndexController@getIndex') }}">Cancel</a>
 		</form>
   {{ Form::close() }}
+  
+  
 @stop

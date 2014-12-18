@@ -5,9 +5,9 @@
  class Trip extends Eloquent{
 	
 	        
-	     /* A Trip has itineraries  */
+	       /* A Trip has itineraries  */
 	
-	        public function itineraries(){
+	        public function itinerary(){
 		
 		      return $this->hasMany('Itinerary');
 		

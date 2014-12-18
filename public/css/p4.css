@@ -1,9 +1,16 @@
 body{
 	
-	background-color: #d3e6f8;
-	padding:5px;
-	
+	background-color: #0e0f0f;
+	margin:3px auto auto auto;
+    font-family: sans-serif, Helvetica;
+    color:white;
+	}
+
+
+.navigation{
+ margin-left: 100px;
+ font-color: white;
+ text-decoration:none;
 	
 	
 }
-

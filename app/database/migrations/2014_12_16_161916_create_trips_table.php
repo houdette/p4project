@@ -25,7 +25,8 @@ class CreateTripsTable extends Migration {
         $table->integer('duration')->nullable();
  
        });
-	}
+       }
+	
 
 	/**
 	 * Reverse the migrations.
