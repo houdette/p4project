@@ -14,22 +14,21 @@
   @stop
   
   @section('maintop')
-  <h2>Add new Trip</h2>
+  <h2 style =" margin-left: 50px">Add new Trip</h2>
 	
-	<form action="{{ action('TripController@postCreate') }}" method="post" role="form">
+	<form action="{{ action('TripController@postCreate') }}" method="post" role="form" style ="margin-left-50px;">
 
 		<div class="form-group">
 			{{ Form::label('name','Name') }}
-			{{ Form::input('text', 'name', null) }}
+			  {{ Form::input('text', 'name', null) }}
 		</div>
 		<div class="form-group">
 			{{ Form::label('duration','Duration') }}
-			<br>
-			{{ Form::input('duration', 'duration', null) }}
+		{{ Form::input('duration', 'duration', null) }}
 		</div>
 		
-		{{ Form::submit('Create Trip') }}
-
+		    <div style= "margin-left:100px;">{{ Form::submit('Create Trip') }}</div>
+        
 	</form>
 
 	<h2>List of Trips</h2>

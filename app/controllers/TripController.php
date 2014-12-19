@@ -84,8 +84,7 @@ class TripController extends BaseController {
 		}
 	}
 
-	    //THIS one needs to post EDITED trip to DB, user needs to be signed in. In Laravel it has to be found before it is edited. 
-
+	    
 	public function postEdit()
 	{
 		if(!Auth::check())

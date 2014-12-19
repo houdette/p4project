@@ -5,31 +5,13 @@ Create a new itinerary
 @stop
 
 @section('content')
-
-  <h2>Add new itinerary</h2>
-  <form action="{{ action('ItineraryController@postCreate') }}" method="post" role="form">
-
-    <div class="form-group">
-      {{ Form::label('name','Name') }}
-      {{ Form::input('text', 'name', null) }}
-    </div>
-    <div class="form-group">
-      {{ Form::label('description','Description') }}
-      <br>
-      {{ Form::textarea('description', '', null) }}
-    </div>
-    
-    {{ Form::submit('Create Itinerary') }}
-
-  </form>
-
-  <h2>List of Itineraries</h2>
+  <h3 style = "margin-left: 30px;">List of Itineraries</h3>
 
   @if ($itineraries->isEmpty())
     <p>There are no itineraries! </p>
 
   @else
-    <table class="table table-striped">
+    <table class="table table-striped" style = "margin-left:50px, margin-right:50px;">
       <thead>
         <tr>
           <th>Name</th>

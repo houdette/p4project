@@ -12,7 +12,7 @@
                      <title> @yield ('title','Paris Itineraries') </title>
                       <!--more css -->
                       <link rel='stylesheet' href='{{ asset( 'css/p4.css')}}'type = 'text/css'>
-                  @yield ('navigation')
+                   @yield ('navigation')
 
          </head>
            
@@ -27,31 +27,34 @@
  width:1000px; margin-left: 100px; "/><br>
 
                             <div class="navigation">
-                                <h4><a href="/trips" target="_blank"> All Trips </a> 
-                      
-                            </div>
-                     
+                                <h4 style =" margin-left: 100px;"><a href="/trips" target="_blank"> All Trips </a></h4>
                                     <ul>
                                     
                                     @if(Auth::check())
-				                       <li><a href='/logout'>Log out: {{ Auth::user()->email; }}</a></li><br>
-				                       <li><a href='/useritineraries'> ~ My saved itineraries</a></li>
-				                       <li><a href='/itineraries/create'> + Add an Itinerary </a></li>
-                                        <li><a href='/itineraries/edit'> * Edit an existing itinerary </a></li>
-                                       <li><a href='/itineraries/delete'> - Delete an existing itinerary </a></li>
-				                    @else 
-		                
-                                        <h4><li class="login"> <a href='/signup'>Sign up</a> or <a href='/login'>Log in</a></li></h4>
+                                       <li><a href='/logout'>Log out: {{ Auth::user()->email; }}</a></li><br>
+                                       <li><?php echo HTML::link('', 'Home'); ?></li>
+			                           <li><?php echo HTML::link('plan/trip', 'Plan a Trip'); ?></li>
+			                            <li><?php echo HTML::link('itineraries', 'Itineraries'); ?></li>
+			                             <li><?php echo HTML::link('trips', 'Trips'); ?></li>
+                                       @else
+			                          <h4><li class="login"> <a href='/signup'>Sign up</a> or <a href='/login'>Log in</a></li></h4></h4>
+			                         
 	                                @endif
 	                
+ 
 				                    </ul>
-				     
+
+				                    
+                             </div>
+
+
+                                   
+	                
 			   </nav>
 	                @yield ('maintop')
 	                @yield ('content')
 
-	                
-	                
+	      
 	                
 	                
 	                

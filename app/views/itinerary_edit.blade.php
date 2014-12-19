@@ -2,25 +2,30 @@
 @extends('_master')
 
 @section('title')
-  Edit a new itinerary
+  Edit itinerary
 @stop
 
 @section('content')
 
-<!!Work on PHP Laravel logic to get the data-->
-
 <h1>Edit an itinerary </h1>
-  {{ Form::open(array('url' => 'itinerary/edit')) }}
-    {{ Form::label('name', 'Itinerary') }}
-    {{ Form::text('name', 'itineray->name') }}
-  
-    {{ Form::label('description', 'Description') }}
-    {{ Form::text('description','description') }}
-    {{ Form::hidden('user_id', $user_id) }}
-    {{ Form::hidden('itinerary_id', 'itineraryid') }}
-    {{ Form::submit('Edit Itinerary') }}
-    {{ Form::close() }}
+
+<form action="{{ action('ItineraryController@postEdit') }}" method="post" role="form">
+                
+    <input type="hidden" name="id" value="{{ $itinerary->id }}" />
+
+    <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-group" name="name" value="{{ $itinerary->name }}" />
+    </div>
+    <div class="form-group">
+        <label for="description">Description</label>
+        <textarea class="form-group" name="description" >{{ $itinerary->description }}</textarea>
+    </div>
+    <input type="submit" value="Save" class="btn btn-primary" />
+
+    <a href="{{ action('ItineraryController@getList') }}" class="btn btn-link">Cancel</a>
+
+</form>
+
 @stop
-
-
 
