@@ -41,6 +41,8 @@ class TripPlannerController extends BaseController {
 
 			$r->save();
 		}
+		//return View::make('saved-trip');
+		//->withSuccess('Trip has been planned successfully. Enjoy your trip!');
 
 		return Redirect::route("plan.trip")->withSuccess('Trip has been planned successfully. Enjoy your trip!');
 	}
