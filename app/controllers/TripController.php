@@ -127,8 +127,7 @@ class TripController extends BaseController {
 		}
 	}
 
-	//THIS one needs to post a DELETED trip to DB, user needs to be signed in. In Laravel it has to be found before it is DELETED.
-
+	
 	public function postDelete($id)
 	{
 		if(!Auth::check())
